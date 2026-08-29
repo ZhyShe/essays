@@ -1,72 +1,60 @@
 % !TEX program = xelatex
-% 《刻舟记》—— 一篇随笔
-% 编译:latexmk -xelatex kezhouji.tex   或   xelatex kezhouji.tex
-% 字体使用 TeX Live 自带的 Fandol 开源中文字体,任何装有 TeX Live 的机器都能直接编译。
-% 若在 macOS 上想用系统字体(宋体/楷体更好看),把下面的 fontset=fandol 改成 fontset=macnew。
+% 刻舟记 —— 随手记
+% 编译:latexmk -xelatex kezhouji.tex
+% 版式的意思是"本子",不是"论文":A5 的小开本、楷体、宽行距,
+% 不编号、不加页码、不用脚注,注释就写在句子里。
+% 字体用 TeX Live 自带的开源 Fandol,换成 macOS 系统字体就把 fandol 改成 macnew。
 
 \documentclass[UTF8, fontset=fandol, 12pt]{ctexart}
 
-\usepackage[a4paper, top=3.2cm, bottom=3.2cm, left=3.4cm, right=3.4cm]{geometry}
+\usepackage[a5paper, top=2.4cm, bottom=2.4cm, left=2.3cm, right=2.3cm]{geometry}
 \usepackage{xcolor}
 \usepackage{indentfirst}
 \usepackage[hidelinks]{hyperref}
 
-\hypersetup{
-  pdftitle={刻舟记},
-  pdfsubject={随笔},
-  pdfkeywords={刻舟求剑, 随笔, 渡河}
-}
+\hypersetup{pdftitle={刻舟记}, pdfsubject={随笔}}
 
-% ——— 版式 ———
-\linespread{1.5}\selectfont
-\setlength{\parskip}{0.35em}
-\punctstyle{kaiming}
-\pagestyle{plain}
+% ——— 版式:松一点 ———
+\linespread{1.6}\selectfont
+\setlength{\parskip}{0.45em}
+\setlength{\parindent}{2em}
+\pagestyle{empty}
 
-% 章节分隔:不编号,居中的一枚小记号
-\newcommand{\fenge}{%
-  \par\vspace{1.5em}%
-  {\centering\zihao{5} \ensuremath{*}\quad\ensuremath{*}\quad\ensuremath{*} \par}%
-  \nopagebreak\vspace{1.1em}%
-}
+% 淡一号的小字,用来写题记和句子里的注
+\newcommand{\dan}[1]{{\color{black!55}#1}}
 
-% 题记
-\newenvironment{tiji}{%
-  \begin{quote}\kaishu\zihao{-5}\linespread{1.35}\selectfont
-}{%
-  \end{quote}\vspace{0.6em}
-}
+% 段落之间换气,不编号,也不画记号
+\newcommand{\huanqi}{\par\vspace{2.1em}}
 
 \begin{document}
 
-\thispagestyle{empty}
+\kaishu
 
-\begin{center}
-  {\heiti\zihao{2} 刻 \; 舟 \; 记}\\[1.4em]
-  {\kaishu\zihao{-4} 二〇二六年八月}
-\end{center}
+\noindent{\zihao{3} 刻舟记}
 
-\vspace{1.2em}
+\vspace{0.5em}
+\noindent\dan{\zihao{-6} 二〇二六年八月}
 
-\begin{tiji}
-楚人有涉江者,其剑自舟中坠于水,遽契其舟曰:“是吾剑之所从坠。”舟止,从其所契者入水求之。舟已行矣,而剑不行,求剑若此,不亦惑乎?
+\vspace{1.6em}
 
-\hfill ——《吕氏春秋 $\cdot$ 察今》
-\end{tiji}
+\noindent\dan{\zihao{-6} 楚人有涉江者,其剑自舟中坠于水,遽契其舟曰:“是吾剑之所从坠。”舟止,从其所契者入水求之。舟已行矣,而剑不行,求剑若此,不亦惑乎?
+——《吕氏春秋·察今》}
+
+\vspace{1.8em}
 
 小时候读到这一段,觉得世上再没有比这个楚人更笨的人了。剑掉在江心,他却在船舷上刻一道记号,等船靠了岸,再顺着那道刻痕往水里摸。老师说这叫不知变通,同学们哄堂大笑,我也跟着笑得很大声。
 
 那时我们都以为,自己将来一定是那个划船的人,而不会是那个刻舟的人。
 
-\fenge
+\huanqi
 
 长大以后才慢慢明白,故地重游本身,就是一场刻舟求剑。
 
 我们回到旧巷口、旧校门、旧车站,以为凭着记忆里的那道刻痕,就能在原处打捞起什么。可是水一直在流。站着的人越站越久,终于发现自己并不是在找剑,只是在原地徘徊。
 
-年年岁岁花相似,可只有那年胜过年年。陆游写“城南小陌又逢春,只见梅花不见人”\footnote{陆游《十二月二日夜梦游沈氏园亭》其一。沈园是他与唐琬重逢又诀别的地方,此诗作于唐琬去世四十余年之后。},他分明知道人已经不在了,却还是年年都去;赵嘏写“同来望月人何处?风景依稀似去年”\footnote{赵嘏《江楼感旧》:“独上江楼思渺然,月光如水水如天。同来望月人何处?风景依稀似去年。”},月色、江水、栏杆都还在原处,只有那个一同来的人不在了。
+年年岁岁花相似,可只有那年胜过年年。陆游写“城南小陌又逢春,只见梅花不见人”,那是沈园,他与唐琬重逢又诀别的地方,诗写在唐琬去世四十多年之后——他分明知道人已经不在了,却还是年年都去。赵嘏写“同来望月人何处?风景依稀似去年”,月色、江水、栏杆都还在原处,只有那个一同来的人不在了。
 
-\fenge
+\huanqi
 
 我们笑楚人愚钝,可自己不也一次次在记忆的船舷上刻下记号吗?
 
@@ -74,7 +62,7 @@
 
 这样的执拗,在旁人看来是痴,于自己却是仅剩的仪式。因为除了刻舟,我们竟找不到别的方式,来证明那段时光真实地存在过。
 
-\fenge
+\huanqi
 
 于是有人反驳得很清醒:刻舟者与那个楚人并无分别,唯有向前走,才能真正渡河。
 
@@ -82,7 +70,7 @@
 
 向前走当然能到达彼岸。可彼岸没有想见的人,没有十七岁的月光。有时候我们不是过不去河,是不想过河。守着那把早已沉入江底的剑的影子,至少还能对自己说一句:我没有忘记。
 
-\fenge
+\huanqi
 
 可是江河从不因谁的停留而倒流。
 
@@ -90,7 +78,7 @@
 
 刻痕会模糊,渡口会荒芜,船板会朽掉。只有水流的方向从未改变。
 
-\fenge
+\huanqi
 
 所以渡河从来不是遗忘。渡河是带着那把沉剑的重量,去往更开阔的水域。
 
