@@ -1,0 +1,17 @@
+# LaTeX 中间文件
+*.aux
+*.log
+*.out
+*.toc
+*.xdv
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+
+# 编译产物保留 kezhouji.pdf(见下方例外)
+!kezhouji.pdf
+
+# macOS
+.DS_Store
